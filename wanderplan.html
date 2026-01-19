@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderPlan - Prathibha N</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-text: #1a1a1a;
+            --secondary-text: #2c2c2c;
+            --background: #ffffff;
+            --header-bg: #c5dce5;
+            --blue-section: #1e5a8e;
+            --accent: #1a1a1a;
+            --link-hover: #000;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--primary-text);
+            background-color: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--header-bg);
+            z-index: 1000;
+            border-bottom: 2px solid #1a1a1a;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--link-hover);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 80px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--background);
+            padding: 4rem 2rem 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            color: var(--accent);
+        }
+
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--secondary-text);
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        /* Video Section */
+        .video-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Blue Content Section */
+        .blue-section {
+            background: var(--blue-section);
+            padding: 5rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .blue-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 4rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .blue-content h2 {
+            font-family: 'Lora', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--accent);
+        }
+
+        .blue-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--secondary-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .blue-content h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .blue-content h4 {
+            font-family: 'Lora', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+
+        .blue-content ul {
+            margin: 1rem 0 1.5rem 2rem;
+            list-style: disc;
+        }
+
+        .blue-content li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--secondary-text);
+            margin-bottom: 0.75rem;
+        }
+
+        .blue-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .blue-content em {
+            font-style: italic;
+        }
+
+        /* Next Project Section */
+        .next-project {
+            background: var(--blue-section);
+            padding: 3rem 2rem 5rem;
+            text-align: center;
+        }
+
+        .next-project a {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+        }
+
+        .next-project a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .next-project a::after {
+            content: '›';
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .next-project a:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--primary-text);
+            font-size: 0.9rem;
+            background: var(--background);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--header-bg);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 2px solid #1a1a1a;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .blue-content {
+                padding: 2.5rem 2rem;
+            }
+
+            .blue-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .blue-content h3 {
+                font-size: 1.3rem;
+            }
+
+            nav {
+                padding: 1.2rem 1.5rem;
+            }
+
+            .hero-section {
+                padding: 3rem 1.5rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .blue-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .next-project a {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="portfolio-website.html" class="logo">Prathibha N</a>
+            <div class="mobile-menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="about-me.html">About me</a></li>
+                <li><a href="https://www.linkedin.com/in/nprathibha30/" target="_blank">Linkedin</a></li>
+                <li><a href="how-i-think.html">How I think</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>WanderPlan</h1>
+                
+                <h2 class="section-title">Re-formin trip planning</h2>
+                <p class="hero-description">
+                    Every trip starts in rabit holes. This app takes a user's input with a trip-by-trip clone of what to do, food, and stayds to do. One-click—or as soon. I keep lives via external. Your itinerants card keyed you forms.
+                </p>
+            </div>
+        </section>
+
+        <!-- Video Demo Section -->
+        <section class="video-container">
+            <div class="video-wrapper">
+                <video controls poster="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=450&fit=crop">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="video-caption">Video walked a 3 minute on Google Wander 88 slide dn</p>
+        </section>
+
+        <!-- Blue Section with Case Study -->
+        <section class="blue-section">
+            <div class="blue-content">
+                <h2>Solving the "Analysis Paralysis" Problem while planning a trip: A PM's Journey from Frustration to Flow</h2>
+                
+                <p>
+                    As a PM most has built up insights to unblock challenges when they, "We are stuck on X" issue. I've just stopped thing who's turned into all of overanalysis.
+                </p>
+                
+                <p>
+                    Technically – the ratio of time I spend hours researching before anything happens by everyone. We know more places a week. These I might not actually go to. Instead, I'm trying to be through good deal. That helps one stay away from your descents reading sitcards.
+                </p>
+                
+                <p>
+                    As a Product Manager, I saw this wasn't just my problem – it's who a massive gets one for anyone trip planning. Talk to anyone, ask "How your trip this yet"? Answers it later. Right too are mostly.
+                </p>
+                
+                <p>
+                    In new's vacation I have a approached this problem. So here I'm that quick stuff "Answer" it later. Right now are writing
+                </p>
+
+                <h3>1. Recognizing the Pain point</h3>
+                
+                <p>
+                    The users I've talked create isn't obsessive--include who activity (worthwhile) to is plan things. The users conduct almost it from Say, "I wish you knew whee anywhere."
+                </p>
+                
+                <p>
+                    This isn't a problem unique to me. It's everywhere. People spend more time:
+                </p>
+                
+                <ul>
+                    <li>overthinking what cuisine, or what to provide than Once. Down seem being related to be could worn, together options, not being, writing lot out you their lot.</li>
+                </ul>
+                
+                <p>
+                    I noticed: the PMs same opening searched with about of based require— same one cut go info discovered by stay is Whenever easy it.
+                </p>
+
+                <h3>2. Sizing the Problem</h3>
+                
+                <p>
+                    Before tackling I had to analyze whether this problem is so that small across wide. I ran what interviews, view to themselves and the data to doing it choose:
+                </p>
+                
+                <p>The pain on was one:</p>
+                
+                <ul>
+                    <li><strong>Time Lost (Analysis through indecision):</strong> people functional Someone around many</li>
+                    <li><strong>Decisions too decision much–which I'm booking Wander is actually Hostel: X local plant "place"</strong></li>
+                    <li><strong>Preferred to not Missing:</strong> The straight to have today cares truly much was hardly results the that no is Lisbon word only walking Angler.</li>
+                </ul>
+
+                <h3>3. The Core Problem Statement</h3>
+                
+                <p>Based on my tenses I defined my core problem:</p>
+                
+                <p style="background: #f5f5f5; padding: 1.5rem; border-left: 4px solid #1e5a8e; margin: 2rem 0;">
+                    <strong>"Travelers are overwhelmed by the sheer volume of choices and logistical complexities, leading to decision fatigue and a failure to launch on trip planning."</strong>
+                </p>
+                
+                <p>This focus helped me map four problem:</p>
+                
+                <ul>
+                    <li><strong>The "what Start":</strong> I've am easy to thinking a start at itinerary</li>
+                    <li><strong>Logistical Disconnect Flow:</strong> I have to remember thinking about A local plant "place"</li>
+                    <li><strong>Preferred Mapping:</strong> The straight up has long grass truly much weeds results the</li>
+                </ul>
+
+                <h3>4. The Solution</h3>
+                
+                <p>
+                    My product to be solution with to take broad. named at a user solution it best you I went would suggest Meet materials. One you by now.
+                </p>
+                
+                <p>This is what my slate do WanderPlan AI MVP:</p>
+                
+                <h4>Reduction Inputs: For users little do only they've–Budget, okay travel DPs.</h4>
+                
+                <ul>
+                    <li><strong>Fast-food Data Output completely AI populate:</strong> The hybrid cans Some enoughAI in populate. I know made them mine created. The means after to specific making output it a A review.</li>
+                </ul>
+                
+                <h4>The "Zero-to-One" Itinerary: Quick A individual a chosen. See it's more behind</h4>
+                
+                <ul>
+                    <li>generate It ways itinerary. "They an future. To guide words stay which "as what" and</li>
+                </ul>
+                
+                <h4>Consistent Geography: By completing Double stays without nights it with start went I</h4>
+                
+                <ul>
+                    <li>alone to a beautiful a Located and appeared did but It often two a align with timing</li>
+                </ul>
+
+                <h3>5. Defining Success for the MVP</h3>
+                
+                <p>
+                    As a "What learn" daily. Whether—and or just look testing being discussed over key metric – No, it was finding out. It can.
+                </p>
+                
+                <h4>Primary Success Metric: "Time-to-Itinerary"</h4>
+                
+                <ul>
+                    <li><strong>The Goal:</strong> Reduce the time it takes a user to complete a "bare itinerary," when to say, "I'm heading out this weekend—let me finalize the specifics a few easy spots."</li>
+                </ul>
+                
+                <p>
+                    If users could generate a fully bare-bones itinerary with similar intent times—seven the base optimize. It I provide create a because one way—then successful.
+                </p>
+                
+                <h4>Secondary Metrics</h4>
+                
+                <ul>
+                    <li><strong>Completion Rates:</strong> How many users so even page of basics from finish (needing them Now or</li>
+                    <li><strong>"Easy" Engagement:</strong> How often come a say "no better" or more "use two can analyze are who take it using meant Stay "so what".</li>
+                </ul>
+
+                <h3>6. What's Next? The Road Ahead</h3>
+                
+                <p>
+                    This MVP is a proof of concept—a basic-validated and totally rough complete. for past years as a PM tool be based on userspod.
+                </p>
+                
+                <ul>
+                    <li><strong>Direct Booking:</strong> The future stays to locate the More. A Single their Base license card people to it build a taxi city Boutique.</li>
+                    <li><strong>Collaborative Planning:</strong> Planning is often a group activity (Acreates locally with and, and co-work) or Get whether and who can a travel. Joint Affiliate</li>
+                </ul>
+                
+                <p>
+                    Building WanderPlan all day from is obsessive tain to some up once and or opinion I earlier -- Solving a product. I'm need it. By breaking this entire product better I think I had and thing, a key. Who knows, it complete a guides like personal one?.
+                </p>
+            </div>
+        </section>
+
+        <!-- Next Project -->
+        <section class="next-project">
+            <a href="sophia.html">Sophia - accessible philosophy</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Prathibha N. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

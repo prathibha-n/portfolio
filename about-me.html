@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About me - Prathibha N</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-text: #1a1a1a;
+            --secondary-text: #2c2c2c;
+            --light-blue: #c5dce5;
+            --sage-green: #b4c9b4;
+            --light-gray: #e8e8e8;
+            --header-bg: #c5dce5;
+            --accent: #1a1a1a;
+            --link-hover: #000;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--primary-text);
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--header-bg);
+            z-index: 1000;
+            border-bottom: 2px solid #1a1a1a;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--link-hover);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            text-decoration: underline;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 80px;
+        }
+
+        /* Hero Section - About me */
+        .about-hero {
+            background: var(--light-blue);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .about-hero h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--accent);
+        }
+
+        .about-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            text-align: left;
+        }
+
+        .about-column h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-column p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-column ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+        }
+
+        .about-column li {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-column strong {
+            font-weight: 600;
+            background: var(--accent);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        /* What I Value Section */
+        .values-section {
+            background: var(--sage-green);
+            padding: 5rem 2rem;
+        }
+
+        .values-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .values-content h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--accent);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .value-item h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .value-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--secondary-text);
+        }
+
+        /* Interests Section */
+        .interests-section {
+            background: var(--light-gray);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .interests-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .interests-content h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .interests-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--secondary-text);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--light-blue);
+            padding: 5rem 2rem;
+        }
+
+        .contact-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--secondary-text);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-text);
+        }
+
+        .form-group label .required {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.9rem 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            padding: 1rem 3rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--primary-text);
+            font-size: 0.9rem;
+            background: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .about-content,
+            .values-grid,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .values-grid {
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--header-bg);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 2px solid #1a1a1a;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .values-content h2,
+            .interests-content h2,
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 1.2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .about-hero {
+                padding: 3rem 1.5rem 2rem;
+            }
+
+            .values-section,
+            .interests-section,
+            .contact-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="portfolio-website.html" class="logo">Prathibha N</a>
+            <div class="mobile-menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="about-me.html" class="active">About me</a></li>
+                <li><a href="https://www.linkedin.com/in/nprathibha30/" target="_blank">Linkedin</a></li>
+                <li><a href="how-i-think.html">How I think</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- About Me Hero Section -->
+        <section class="about-hero">
+            <h1>About me</h1>
+            <div class="about-content">
+                <div class="about-column">
+                    <h3>I love messy problems - where the situation is unclear, people are pulling in different directions, and the team needs clarity to move forward.</h3>
+                    <p>My default approach is:</p>
+                    <ul>
+                        <li>understand the user and the story</li>
+                        <li>validate with data</li>
+                        <li>structure the problem space</li>
+                        <li>align stakeholders once there's enough signal</li>
+                        <li>execute with focus and momentum</li>
+                    </ul>
+                </div>
+                <div class="about-column">
+                    <p>I currently work at a HRTech payroll product in <strong>Bengaluru, KA, India</strong>.</p>
+                    <p>I have previously worked in Mobility and Analytics domains.</p>
+                    <p>I am <strong>domain agnostic</strong> and a <strong>generalist</strong> PM who brings structure, soul, and a quietly stubborn instinct for doing what's right. Even when it's not easy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What I Value Section -->
+        <section class="values-section">
+            <div class="values-content">
+                <h2>What I value</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h3>Teamwork over hero culture</h3>
+                        <p>I don't believe in lone wolves. Good products are built in the messy middle – with engineers, design, ops, and whoever else the business needs. Everyone gets their voice. I care about shared context, shared ownership, and making sure the team wins together. If something fails, accountability should be shared. If something fails, accountability should be collective and constructive - never personal.</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Communication out loud</h3>
+                        <p>I've learned that most execution failures aren't because people are incapable — they're because people aren't <em>aligned</em>. I over-index on saying things early, clearly, explicitly: what we're solving, what we're not solving, <em>why</em> a decision was made, and what tradeoffs we're accepting. I'd rather risk sounding repetitive than let teams silently diverge. Clarity upfront saves weeks of confusion later.</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Psychological safety</h3>
+                        <p>I take team trust seriously. People do their best work when they're not afraid of being blamed, ridiculed, or undermined. I try to create an environment where it's safe to ask "stupid questions," challenge ideas, admit mistakes early, and disagree respectfully. I don't throw people under the bus — especially in front of leadership — and I actively give credit where it's due, because trust compounds over time.</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Due diligence</h3>
+                        <p>I don't like wasting other people's time. Before escalating a question or seeking help, I try to do the work: understand the context, check data, attempt solutions, and narrow down what I'm <em>actually</em> stuck on. It makes conversations sharper, decisions faster, and it builds credibility with teams. Also — you learn far more by trying first than by outsourcing your thinking.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interests Section -->
+        <section class="interests-section">
+            <div class="interests-content">
+                <h2>All work and no play? Nah.</h2>
+                <p>Outside work, I recharge with various side quests - crochet in one corner, British panel shows in the background, and a suspicious number of murder mysteries on my watching and reading list. I'm a sucker for history, fine arts, sarees and Indian textiles, and I'm currently learning Korean ✨ (yes, K-dramas are a valid educational resource). When I need a dopamine hit: Catan, card games, puzzles, or long green walks.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Contact me</h2>
+                    <p>Interested in working together? Fill out some info and I will be in touch shortly. I can't wait to hear from you!</p>
+                </div>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name <span class="required">(required)</span></label>
+                            <input type="text" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email <span class="required">(required)</span></label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message <span class="required">(required)</span></label>
+                        <textarea required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Prathibha N. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
